@@ -1,0 +1,20 @@
+# Netlify configuration file for a Vite + React SPA
+
+[build]
+  # This command is run to build the site
+  command = "yarn build"
+  
+  # The directory that contains the built site
+  publish = "dist"
+
+[build.environment]
+  # Specify a Node.js version to ensure build consistency
+  NODE_VERSION = "18"
+
+[[redirects]]
+  # This rule is crucial for Single-Page Applications (SPAs)
+  # It redirects all requests to the main index.html file,
+  # allowing React Router to handle the routing on the client side.
+  from = "/*"
+  to = "/index.html"
+  status = 200
